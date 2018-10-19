@@ -1,12 +1,12 @@
-package com.dictionary;
+package com.leetcode;
 
-
-import com.dictionary.to.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
+
+import com.leetcode.to.TreeNode;
 
 public class BSTIterator {
 

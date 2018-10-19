@@ -1,6 +1,20 @@
-package com.dictionary;
+package com.leetcode;
 
 public class GasStation {
+	
+	public void trst() {
+		Integer i =100;
+		System.out.println(Integer.toBinaryString(i));
+		System.out.println(Integer.toBinaryString(-i));
+		int d = i & -i;
+		System.out.print("D >> " + d);
+	}
+	
+	public static void main(String[] s) {
+		GasStation g = new GasStation()
+				;
+		g.trst();
+	}
 
     public int canCompleteCircuit_mine(int[] gas, int[] cost) {
         int nodeCnt = gas.length;

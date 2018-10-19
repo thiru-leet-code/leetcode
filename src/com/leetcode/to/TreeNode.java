@@ -1,4 +1,4 @@
-package com.dictionary.to;
+package com.leetcode.to;
 
 public class TreeNode {
     public int val;

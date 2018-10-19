@@ -1,4 +1,4 @@
-package com.dictionary;
+package com.leetcode;
 
 import java.io.IOException;
 import java.util.*;

@@ -1,4 +1,4 @@
-package com.dictionary;
+package com.leetcode;
 
 public class RotateArray90 {
     class Solution {

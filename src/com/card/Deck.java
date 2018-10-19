@@ -1,4 +1,4 @@
-package com.company;
+package com.card;
 
 import java.util.Arrays;
 import java.util.List;

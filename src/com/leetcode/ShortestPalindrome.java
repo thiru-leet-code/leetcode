@@ -1,4 +1,4 @@
-package com.dictionary;
+package com.leetcode;
 
 /**
  * Did work... thought of doing a full/long palindrome and iterate and find
