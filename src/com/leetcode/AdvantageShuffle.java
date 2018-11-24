@@ -18,14 +18,6 @@ public class AdvantageShuffle {
             int min = -1;
             //System.out.println("B[i] : " + B[i]);
             for (; j<= A.length-1; j++) {
-                if (A[j] != -1){
-                    if (min == -1) {
-                        min =j;
-                    }
-                    // System.out.println("min************ : " + A[j]);
-                    if (A[min] > A[j])
-                        min = j;
-                }
                 if (B[i]<A[j]) {
                     found = true;
                     break;
