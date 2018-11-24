@@ -16,8 +16,6 @@ public class BestTimeBuySellStockII {
                 profit +=(prices[i] - prices[i-1]);
             }
         }
-        PriorityQueue<Interval> p = new PriorityQueue<>(((a,b) -> { return a.end-b.end;}));
-        Interval i = (Interval) p.toArray()[0];
         return profit;
     }
 
