@@ -1,4 +1,4 @@
-package com.company;
+package com.card;
 
 import java.io.CharArrayReader;
 import java.util.Arrays;

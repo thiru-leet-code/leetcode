@@ -1,8 +1,16 @@
-package com.dictionary;
+package com.leetcode;
 
 import java.util.stream.IntStream;
 
 public class ArrayIncrement {
+	
+	void dow() {
+		 int[] p = {2,3};
+		    int[] y  = new int[3];
+		    y = p.clone();
+		    y[2] = 1;
+		    System.out.print("88888888888888888" + y[0] + "- " + y[1] + "-" + y[2]);
+	}
 
 private Integer[] increment(Integer[] input, int index) {
   if (input[index] != 9) {
@@ -33,6 +41,7 @@ private Integer[] startIncrement(Integer[] input) {
 
 public static void main(String[] a) {
 ArrayIncrement arrayIncrement = new ArrayIncrement();
+arrayIncrement.dow();
 Integer[] newArray = {9,9,9};
 Integer[] returned = arrayIncrement.startIncrement(newArray);
 IntStream.range(0, returned.length).forEach(i -> {

@@ -1,4 +1,4 @@
-package com.dictionary;
+package com.leetcode;
 
 public class TrimBinaryTree {
     public class TreeNode {

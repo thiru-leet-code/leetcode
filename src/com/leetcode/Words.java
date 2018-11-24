@@ -1,4 +1,4 @@
-package com.dictionary;
+package com.leetcode;
 
 import java.util.*;
 import java.util.logging.Logger;

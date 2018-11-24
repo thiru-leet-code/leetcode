@@ -1,4 +1,4 @@
-package com.company;
+package com.card;
 
 public enum Suits {
     Hearts,
