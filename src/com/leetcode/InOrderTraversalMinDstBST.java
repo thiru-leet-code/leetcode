@@ -27,8 +27,6 @@ public class InOrderTraversalMinDstBST {
 	        prev = node.val;
 	        trav(node.right);
 	        
-	        String a = "";
-	        int u = (Integer.valueOf('1') + 1);
 	    }   
 	
 

@@ -1,8 +1,6 @@
 package com.leetcode;
 
-import static org.junit.Assert.assertEquals;
 
-import org.junit.jupiter.api.*;
 
 public class FirstPositiveNumber {
 	
@@ -34,12 +32,12 @@ public class FirstPositiveNumber {
 	}
 	
 	    
-	    @Test
+	    /*@Test
 	    public void test() {
 	    	FirstPositiveNumber f = new FirstPositiveNumber();
 	    	int[] A = {3, 4, -1 ,1};
 	    	assertEquals(2, f.firstMissingPositive(A));
-	    }
+	    }*/
 	    
 
 	    public static void main() {
