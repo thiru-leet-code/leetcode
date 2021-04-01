@@ -38,7 +38,6 @@ public class MedianTwoSortedArray {
 	        if ((nums1.length+nums2.length) % 2 == 0) {
 	            even = true;
 	        } 
-	        System.out.println("end : " + end);
 	        for (int h =0; h <= end-1 ; h++) {
 	            if  (i <nums1.length && j < nums2.length) {
 	                if  (nums1[i] < nums2[j]) {
@@ -64,8 +63,6 @@ public class MedianTwoSortedArray {
 	                    j++;
 	            }
 	        }
-	        for (int a: finalA)
-	        System.out.print(a);
 	        if  (even) {
 	            return Double.valueOf(((double)finalA[end-1] + (double)finalA[end-2])/2);
 	        }

@@ -3,28 +3,53 @@ package com.leetcode;
 
 import java.util.Arrays;
 
-public class QuickSort {
+public class MergeSortCourse {
 
     public static void main(String[] args) {
         int[] values = {20,35,-15,7,55,1,-22};
-        sort(0, values.length, values);
-        Arrays.stream(values).forEach( v-> System.out.println()       );
+        Arrays.stream(mergeSort(values, 0, values.length-1)).forEach( v-> System.out.println(v)       );
     }
 
-    private static void sort( int i , int j, int[] v) {
-        int orgj= j;
-        int orgi = i;
-        if(j-i < 2) return;
-        int ele = v[i];
-        while (i<j) {
-            while (i<j && ele< v[--j]);
-            if (i<j) v[i] = v[j];
-            while (i <j && ele > v[++i]);
-            if (i<j) v[j] = v[i];
+   /* private static  int[] mergesSort (int[]v, int start, int end) {
+        if (start==end) {
+            return new int[]{v[start]};
         }
-        v[i] = ele;
-        sort(orgi, i, v);
-        sort(i+1, orgj, v);
+        int mid = (end-start)/2;
+        int[] first = mergesSort(v, start, start+mid-1);
+        int[] second = mergesSort(v, start+mid, end);
+    }*/
 
+    private static int[] mergeSort(int[] v, int start, int end) {
+        if (start==end) {
+            return new int[]{v[start]};
+        }
+        int mid = (end-start+1)/2;
+        int[] first = mergeSort(v, start, start+mid-1);
+        int[] second = mergeSort(v, start+mid, end);
+        int[] sorted = new int[first.length+second.length];
+        int i=0, j=0;
+        int z=0;
+        for (; (i < first.length) && (j < second.length); z++) {
+            if (first[i]<second[j]) {
+                sorted[z] = first[i];
+                i++;
+            } else if (first[i]>second[j]) {
+                sorted[z] = second[j];
+                j++;
+            } else {
+                sorted[z++] = first[i];
+                i++;
+                sorted[z] = second[j];
+                j++;
+            }
+
+        }
+        if (i < first.length) {
+            System.arraycopy(first, i, sorted, z, first.length -i);
+        }
+        if (j < second.length) {
+            System.arraycopy(second, j, sorted, z, second.length-j);
+        }
+        return sorted;
     }
 }
