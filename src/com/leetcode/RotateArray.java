@@ -37,6 +37,31 @@ import java.util.Arrays;
 public class RotateArray {
 
     public void rotate(int[] nums, int k) {
+        /*int rotationCount = k;
+        int i = 0;
+        int target = 0 +k;
+        int max = nums.length-1;
+        int pre = nums[i];
+        int cur =0;
+        int curstart = 0;
+        while (rotationCount > 0 ) {
+            while (target <= max) {
+                cur = nums[target];
+                nums[target] = pre;
+                pre = cur;
+                target += k;
+            }
+            rotationCount --;
+            target = target -max -1;
+            if (curstart == target){
+                cur = nums[target];
+                nums[target] = pre;
+                pre = cur;
+                target +=1;
+                curstart = target;
+            }*/
+
+        /*
         int rotationCount = k;
         int i = 0;
         int target = 0 +k;
@@ -62,12 +87,38 @@ public class RotateArray {
             }
 
         }
+        //if (target<=max) nums[target] = pre;
+    }
+         */
+        if (k == 0 ) return;
+        int tracker = (k%nums.length)*2;
+        int y = 1;
+        while(tracker >0) {
+            tracker = adjust(nums, true, nums.length-y, (k%nums.length), nums[nums.length-y], tracker, nums.length-y);
+            y++;
+        }
        // if (target<=max) nums[target] = pre;
     }
 
+
+
+    private int  adjust(int[] nums, boolean start, int index, int mod, int val, int tracker, int startIndex) {
+
+        //if (tracker==0) return tracker;
+        int newIndex = index + mod;
+        newIndex %= nums.length;
+        if (newIndex == startIndex && !start) return tracker;
+       /* if (newIndex > nums.length-1) {
+            newIndex = newIndex - nums.length-;
+        }*/
+        int u = nums[newIndex];
+        nums[newIndex] = val;
+        return adjust(nums, false,newIndex, mod, u, --tracker, startIndex );
+    }
+
     public static void main(String[] args) {
-        int[] d = {1,2,3,4,5,6};
-        new RotateArray().rotate(d,4);
+        int[] d = {1,2,3};
+        new RotateArray().rotate(d,2);
         System.out.println(Arrays.toString(d));
     }
 }

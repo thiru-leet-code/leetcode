@@ -10,27 +10,38 @@ import com.leetcode.to.TreeNode;
 
 public class BSTIterator {
 
-    Stack<TreeNode> parents = null;
+    LinkedList<TreeNode> parents = null;
 
     public BSTIterator(TreeNode root) {
-        if (root!= null) {
+       /* if (root!= null) {
             parents = new Stack<>();
             parents.push(root);
             while(root.left!=null) {
                 parents.push(root.left);
                 root = root.left;
             }
+        }*/
+        if (root!= null) {
+            parents = new LinkedList<>();
+            populate(parents, root);
         }
+    }
+
+    private void populate(LinkedList<TreeNode> s, TreeNode node) {
+        if (node == null) return;
+        populate(s, node.left);
+        s.add(node);
+        populate(s, node.right);
     }
 
     /** @return whether we have a next smallest number */
     public boolean hasNext() {
-        return parents!=null && !parents.empty();
+        return parents!=null && parents.size()>0;
     }
 
     /** @return the next smallest number */
     public int next() {
-        TreeNode node = parents.pop();
+        /*TreeNode node = parents.pop();
         int val = node.val;
         if (node.right!=null) {
             node = node.right;
@@ -41,11 +52,17 @@ public class BSTIterator {
             }
         }
 
-        return val;
+        return val;*/
+        return parents.pop().val;
     }
 
+    /**
+     * ["BSTIterator","next","next","hasNext","next","hasNext","next","hasNext","next","hasNext"]
+     * [[[7,3,15,null,null,9,20]],[],[],[],[],[],[],[],[],[]]
+     * @param args
+     */
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
+        TreeNode root = TreeNode.createTree("7,3,15,null,null,9,20");
         BSTIterator bt = new BSTIterator(root);
         while(bt.hasNext()) {
             System.out.println(bt.next());

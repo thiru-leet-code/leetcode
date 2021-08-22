@@ -32,7 +32,7 @@ cache.get(4);       // returns 4
  */
 class LRUCache {
     
-    Map<Integer, Integer> cache = new HashMap<>();
+    /*Map<Integer, Integer> cache = new HashMap<>();
     LinkedList<Integer> queue = new LinkedList<>();
     int sizeLimit = 0;
 
@@ -59,6 +59,31 @@ class LRUCache {
         cache.put(key,value);
         queue.remove(Integer.valueOf(key));
         queue.add(Integer.valueOf(key));
+    }*/
+
+    Map<Integer, Integer> cache = null;
+    int sizeLimit = 0;
+
+    public LRUCache(int capacity) {
+        this.sizeLimit = capacity;
+        cache = new LinkedHashMap<>(capacity, (float) .5, true);
+    }
+
+    public int get(int key) {
+        if (cache.containsKey(key)) {
+            return cache.get(key);
+        }
+        return -1;
+    }
+
+    public void put(int key, int value) {
+        if (cache.size() == (sizeLimit) && !cache.containsKey(key)) {
+            int removeKey = cache.keySet().iterator().next();
+            cache.remove(removeKey);
+            //System.out.println("RemoveKey : " + removeKey);
+
+        }
+        cache.put(key,value);
     }
 }
 
